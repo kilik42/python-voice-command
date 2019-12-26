@@ -1,10 +1,10 @@
 import speech_recognition as sr
 from time import ctime
-
+import time
 r = sr.Recognizer()
 
 
-def record_audio():
+def record_audio(ask=False):
     with sr.Microphone() as source:
         if ask:
             print(ask)
@@ -34,7 +34,9 @@ def respond(voice_data):
         webbrowser.get().open(url)
         print('here is the location of '+ location)
 
+time.sleep(1)
 print('say something')
-voice_data = record_audio()
-#print(voice_data)
-respond(voice_data)
+while 1:
+    voice_data = record_audio()
+    #print(voice_data)
+    respond(voice_data)
