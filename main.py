@@ -38,20 +38,26 @@ def alexis_speak(audio_string):
 
 
 def respond(voice_data):
+    cylon = 'cylon.mp3'
     if 'what is your name' in voice_data:
-        alexis_speak('my name is alexis ')
+        alexis_speak('my name is B166ER ')
     if 'what time is it' in voice_data:
         alexis_speak(ctime())
     if 'search' in voice_data:
         search = record_audio('what do you want to search for?')
         url = 'https://google.com/search?q=' + search
         webbrowser.get().open(url)
+        playsound.playsound(cylon)
         alexis_speak('here is what i found for '+ search)
     if 'find location' in voice_data:
         location = record_audio('what is the location?')
         url = 'https://google.nl/maps/place/' + location + '/&amp;'
         webbrowser.get().open(url)
+        playsound.playsound(cylon)
         alexis_speak('here is the location of '+ location)
+    #if 'call' in voice_data:
+    #    call = record_audio('who do you want me to call?')
+        #callPerson =
     if 'exit' in voice_data:
         exit()
 
